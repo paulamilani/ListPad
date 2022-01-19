@@ -10,13 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AgendaSQLite">
         <activity
-            android:name="br.edu.listPad.activity.DetalheActivity"
+            android:name=".ItemActivity"
             android:exported="true" />
         <activity
-            android:name="br.edu.listPad.activity.CadastroActivity"
+            android:name=".activity.DetalheActivity"
             android:exported="true" />
         <activity
-            android:name="br.edu.listPad.activity.MainActivity"
+            android:name=".activity.CadastroActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.CadastroItemActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
