@@ -81,6 +81,13 @@ class DatabaseHelper(context: Context) :
         return result
     }
 
+    fun apagarItem(itemLista: ItemLista): Int {
+        val db = this.writableDatabase
+        val result = db.delete(TABLE_NAME2, "$ID_ITEM=?", arrayOf(itemLista.id_item.toString()))
+        db.close()
+        return result
+    }
+
     fun listarLista(): ArrayList<Lista> {
         val listaListas = ArrayList<Lista>()
         val query = "SELECT * FROM $TABLE_NAME1 ORDER BY $NOME"

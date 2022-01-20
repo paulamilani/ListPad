@@ -3,6 +3,7 @@ package br.edu.listPad.activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,25 +24,6 @@ class DetalheItemActivity : AppCompatActivity() {
 
         updateItem()
 
-        //botão voltar
-        supportActionBar?.setDisplayHomeAsUpEnabled(true) //Mostrar o botão
-        supportActionBar?.setHomeButtonEnabled(true)      //Ativar o botão
-        supportActionBar?.title = "Voltar"
-    }
-
-    //botão voltar na ToolBar
-    override fun onOptionsItemSelected(item: MenuItem): Boolean { //Botão adicional na ToolBar
-        when (item.itemId) {
-            android.R.id.home -> {
-                startActivity(
-                    Intent(
-                        this,
-                        DetalheActivity::class.java
-                    )
-                )
-            }
-        }
-        return true
     }
 
     //exibir item
@@ -55,15 +37,16 @@ class DetalheItemActivity : AppCompatActivity() {
 
         val listener = object : ItemAdapter.ListaListener {
             override fun onItemClick(pos: Int) {
-                val intent = Intent(applicationContext, DetalheItemActivity::class.java)
+                val intent = Intent(applicationContext, DetalheitemItemActivity::class.java)
                 val c = itemAdapter.listasListaFilterable[pos]
-                intent.putExtra("item", c)
+                intent.putExtra("it", c)
                 startActivity(intent)
             }
         }
         itemAdapter.setClickListener(listener)
 
     }
+
 
     override fun onResume() {
         super.onResume()
