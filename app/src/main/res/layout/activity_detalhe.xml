@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activity.DetalheActivity">
 
-    <include layout="@layout/common_layout"/>
+    <include layout="@layout/layout"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_item"
@@ -15,6 +15,14 @@
         android:layout_margin="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/ic_baseline_person_add_24" />
+        android:src="@android:drawable/ic_input_add" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_item1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@android:drawable/ic_menu_day"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

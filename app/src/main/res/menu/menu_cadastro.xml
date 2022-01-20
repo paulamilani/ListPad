@@ -5,7 +5,7 @@
     <item
         android:id="@+id/action_salvar"
         android:title="Salvar"
-        android:icon="@android:drawable/ic_menu_save"
+        android:icon="@drawable/ic_baseline_save_24"
         app:showAsAction="always" />
 
 </menu>

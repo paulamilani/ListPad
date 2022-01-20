@@ -6,4 +6,5 @@
     android:title="Pesquisar"
     app:showAsAction="always"
     app:actionViewClass="android.widget.SearchView"/>
+
 </menu>

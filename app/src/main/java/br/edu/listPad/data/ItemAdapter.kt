@@ -9,17 +9,18 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.edu.listPad.model.Lista
 import br.edu.listPad.R
+import br.edu.listPad.model.ItemLista
 
 
-class ListaAdapter(val listasLista: ArrayList<Lista>) :
-    RecyclerView.Adapter<ListaAdapter.ListaViewHolder>(), Filterable {
+class ItemAdapter(internal val itemlistasLista: ArrayList<ItemLista>) :
+    RecyclerView.Adapter<ItemAdapter.ListaViewHolder>(), Filterable {
 
     var listener: ListaListener? = null
 
-    var listasListaFilterable = ArrayList<Lista>()
+    var listasListaFilterable = ArrayList<ItemLista>()
 
     init {
-        this.listasListaFilterable = listasLista
+        this.listasListaFilterable = itemlistasLista
     }
 
     fun setClickListener(listener: ListaListener) {
@@ -29,14 +30,14 @@ class ListaAdapter(val listasLista: ArrayList<Lista>) :
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ListaAdapter.ListaViewHolder {
+    ): ItemAdapter.ListaViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.lista, parent, false)
         return ListaViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ListaAdapter.ListaViewHolder, position: Int) {
-        holder.nomeVH.text = listasListaFilterable[position].nome
-        holder.categoriaVH.text = listasListaFilterable[position].categoria
+    override fun onBindViewHolder(holder: ItemAdapter.ListaViewHolder, position: Int) {
+        holder.nomeVH.text = listasListaFilterable[position].nome_item
+
     }
 
     override fun getItemCount(): Int {
@@ -44,8 +45,7 @@ class ListaAdapter(val listasLista: ArrayList<Lista>) :
     }
 
     inner class ListaViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val nomeVH = view.findViewById<TextView>(R.id.nome)
-        val categoriaVH = view.findViewById<TextView>(R.id.categoria)
+        val nomeVH = view.findViewById<TextView>(R.id.item)
 
         init {
             view.setOnClickListener {
@@ -63,11 +63,11 @@ class ListaAdapter(val listasLista: ArrayList<Lista>) :
         return object : Filter() {
             override fun performFiltering(p0: CharSequence?): FilterResults {
                 if (p0.toString().isEmpty())
-                    listasListaFilterable = listasLista
+                    listasListaFilterable = itemlistasLista
                 else {
-                    val resultList = ArrayList<Lista>()
-                    for (row in listasLista)
-                        if (row.nome.lowercase().contains(p0.toString().lowercase()))
+                    val resultList = ArrayList<ItemLista>()
+                    for (row in itemlistasLista)
+                        if (row.nome_item.lowercase().contains(p0.toString().lowercase()))
                             resultList.add(row)
                     listasListaFilterable = resultList
                 }
@@ -77,7 +77,7 @@ class ListaAdapter(val listasLista: ArrayList<Lista>) :
             }
 
             override fun publishResults(p0: CharSequence?, p1: FilterResults?) {
-                listasListaFilterable = p1?.values as ArrayList<Lista>
+                listasListaFilterable = p1?.values as ArrayList<ItemLista>
                 notifyDataSetChanged()
             }
 

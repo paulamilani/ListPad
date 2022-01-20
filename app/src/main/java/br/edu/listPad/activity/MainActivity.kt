@@ -1,16 +1,16 @@
 package br.edu.listPad.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.widget.SearchView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import br.edu.listPad.data.ListaAdapter
-import br.edu.listPad.data.DatabaseHelper
-import br.edu.listPad.model.Lista
 import br.edu.listPad.R
+import br.edu.listPad.data.DatabaseHelper
+import br.edu.listPad.data.ListaAdapter
+import br.edu.listPad.model.Lista
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val fab = findViewById<FloatingActionButton>(R.id.fab)
-        fab.setOnClickListener{
+        fab.setOnClickListener {
             val intent = Intent(applicationContext, CadastroActivity::class.java)
             startActivity(intent)
         }
@@ -33,8 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun updateUI()
-    {
+    private fun updateUI() {
         listLista = db.listarLista()
         listaAdapter = ListaAdapter(listLista)
 
@@ -42,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         recyclerview.layoutManager = LinearLayoutManager(this)
         recyclerview.adapter = listaAdapter
 
-        val listener = object :ListaAdapter.ListaListener{
+        val listener = object : ListaAdapter.ListaListener {
             override fun onItemClick(pos: Int) {
                 val intent = Intent(applicationContext, DetalheActivity::class.java)
                 val c = listaAdapter.listasListaFilterable[pos]
@@ -65,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         val item = menu?.findItem(R.id.action_search)
         val searchView = item?.actionView as SearchView
 
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 TODO("Not yet implemented")
             }
