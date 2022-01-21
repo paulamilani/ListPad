@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activity.DetalheActivity">
 
-    <include layout="@layout/layout"/>
+    <include layout="@layout/layout_lista"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_item"

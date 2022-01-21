@@ -5,6 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".activity.CadastroActivity">
 
-    <include layout="@layout/layout"/>
+    <include layout="@layout/layout_lista"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,30 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="12dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lista: "
+        android:text="Item: "
         android:textSize="30sp"/>
 
     <EditText
-        android:id="@+id/editTextLista"
+        android:id="@+id/editTextItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30sp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Categoria: "
-        android:textSize="30sp"/>
-
-    <EditText
-        android:id="@+id/editTextCategoria"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"/>
 
 </LinearLayout>

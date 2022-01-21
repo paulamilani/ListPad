@@ -36,7 +36,7 @@ class DetalheActivity : AppCompatActivity() {
         //visualizar itens
         val fab_item1 = findViewById<FloatingActionButton>(R.id.fab_item1)
         fab_item1.setOnClickListener{
-            val intent = Intent(applicationContext, DetalheItemActivity::class.java)
+            val intent = Intent(applicationContext, ItemActivity::class.java)
             startActivity(intent)
         }
 

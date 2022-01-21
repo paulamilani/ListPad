@@ -56,7 +56,7 @@ class DatabaseHelper(context: Context) :
         val values = ContentValues()
         values.put(ID_ITEM, item.id_item)
         values.put(NOME_ITEM, item.nome_item)
-        values.put(LISTA_FK, item.lista_fk)
+        //values.put(LISTA_FK, item.lista_fk)
         val result = db.insert(TABLE_NAME2, null, values)
         db.close()
         return result
