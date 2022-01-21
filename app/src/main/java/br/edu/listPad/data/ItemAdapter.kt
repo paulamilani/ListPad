@@ -7,7 +7,6 @@ import android.widget.Filter
 import android.widget.Filterable
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import br.edu.listPad.model.Lista
 import br.edu.listPad.R
 import br.edu.listPad.model.ItemLista
 

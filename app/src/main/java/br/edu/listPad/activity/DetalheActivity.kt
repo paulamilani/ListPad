@@ -28,14 +28,14 @@ class DetalheActivity : AppCompatActivity() {
 
         //add item na lista
         val fab_item = findViewById<FloatingActionButton>(R.id.fab_item)
-        fab_item.setOnClickListener{
+        fab_item.setOnClickListener {
             val intent = Intent(applicationContext, CadastroItemActivity::class.java)
             startActivity(intent)
         }
 
-        //visualizar itens
+        //get itens
         val fab_item1 = findViewById<FloatingActionButton>(R.id.fab_item1)
-        fab_item1.setOnClickListener{
+        fab_item1.setOnClickListener {
             val intent = Intent(applicationContext, ItemActivity::class.java)
             startActivity(intent)
         }
@@ -43,33 +43,32 @@ class DetalheActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_detalhe,menu)
+        menuInflater.inflate(R.menu.menu_detalhe, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val db = DatabaseHelper(this)
 
-        if (item.itemId==R.id.action_alterar) {
+        if (item.itemId == R.id.action_alterar) {
             val nome = findViewById<EditText>(R.id.editTextLista).text.toString()
             val categoria = findViewById<EditText>(R.id.editTextCategoria).text.toString()
 
             lista.nome = nome
             lista.categoria = categoria
 
-            if(db.atualizarLista(lista)>0)
-                Toast.makeText(this,"Lista alterada.", Toast.LENGTH_LONG).show()
+            if (db.atualizarLista(lista) > 0)
+                Toast.makeText(this, "Lista alterada.", Toast.LENGTH_LONG).show()
             finish()
         }
 
-        if (item.itemId==R.id.action_excluir) {
-            if (db.apagarLista(lista)>0)
-                Toast.makeText(this,"Lista excluída.", Toast.LENGTH_LONG).show()
+        if (item.itemId == R.id.action_excluir) {
+            if (db.apagarLista(lista) > 0)
+                Toast.makeText(this, "Lista excluída.", Toast.LENGTH_LONG).show()
             finish()
         }
 
         return super.onOptionsItemSelected(item)
     }
-
 
 }

@@ -56,7 +56,7 @@ class DatabaseHelper(context: Context) :
         val values = ContentValues()
         values.put(ID_ITEM, item.id_item)
         values.put(NOME_ITEM, item.nome_item)
-        //values.put(LISTA_FK, item.lista_fk)
+        values.put(LISTA_FK, item.lista_fk)
         val result = db.insert(TABLE_NAME2, null, values)
         db.close()
         return result
@@ -81,9 +81,9 @@ class DatabaseHelper(context: Context) :
         return result
     }
 
-    fun apagarItem(itemLista: ItemLista): Int {
+    fun apagarItem(item: ItemLista): Int {
         val db = this.writableDatabase
-        val result = db.delete(TABLE_NAME2, "$ID_ITEM=?", arrayOf(itemLista.id_item.toString()))
+        val result = db.delete(TABLE_NAME2, "$ID_ITEM=?", arrayOf(item.id_item.toString()))
         db.close()
         return result
     }
@@ -114,7 +114,8 @@ class DatabaseHelper(context: Context) :
         while (cursor.moveToNext()) {
             val c = ItemLista(
                 cursor.getInt(0),
-                cursor.getString(1)
+                cursor.getString(1),
+                cursor.getInt(2)
             )
             itemListas.add(c)
         }

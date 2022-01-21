@@ -15,9 +15,9 @@ adicionada novas listas ou que acesse os detalhes de cada listas como também fl
 ## Features
 - CRUD Lista
     - detalhes lista
-    - flag urgência lista
+
 - CRUD Item
-    - flag done item
+    - done item
   
 
 ### Demo

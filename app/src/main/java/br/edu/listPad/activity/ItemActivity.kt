@@ -24,7 +24,6 @@ class ItemActivity : AppCompatActivity() {
 
     }
 
-    //exibir item
     private fun updateItem() {
         listaItem = db.listarItem()
         itemAdapter = ItemAdapter(listaItem)

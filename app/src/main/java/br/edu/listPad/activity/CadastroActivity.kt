@@ -10,7 +10,6 @@ import br.edu.listPad.R
 import br.edu.listPad.data.DatabaseHelper
 import br.edu.listPad.model.Lista
 
-
 class CadastroActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,6 +40,5 @@ class CadastroActivity : AppCompatActivity() {
 
         return super.onOptionsItemSelected(item)
     }
-
 
 }

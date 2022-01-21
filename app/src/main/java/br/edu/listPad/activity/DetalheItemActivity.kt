@@ -1,6 +1,5 @@
 package br.edu.listPad.activity
 
-
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -26,7 +25,7 @@ class DetalheItemActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_done,menu)
+        menuInflater.inflate(R.menu.menu_done, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -34,9 +33,9 @@ class DetalheItemActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val db = DatabaseHelper(this)
 
-        if (item.itemId==R.id.action_done) {
-            if (db.apagarItem(it)>0)
-                Toast.makeText(this,"Done", Toast.LENGTH_LONG).show()
+        if (item.itemId == R.id.action_done) {
+            if (db.apagarItem(it) > 0)
+                Toast.makeText(this, "Done", Toast.LENGTH_LONG).show()
             finish()
         }
 
